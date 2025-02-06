@@ -26,7 +26,7 @@ read -p "Enter RPC_ENDPOINTS BASE SEPOLIA RPC: " RPC_ENDPOINTS_BSSP
 read -p "Enter RPC_ENDPOINTS BLAST SEPOLIA RPC: " RPC_ENDPOINTS_BLSS
 read -p "Enter RPC_ENDPOINTS OPTIMISM SEPOLIA RPC: " RPC_ENDPOINTS_OPSP
 read -p "Enter EXECUTOR_MAX_L3_GAS_PRICE (default 10): " EXECUTOR_MAX_L3_GAS_PRICE
-EXECUTOR_MAX_L3_GAS_PRICE=${EXECUTOR_MAX_L3_GAS_PRICE:10} # Default to 10 if not provided
+EXECUTOR_MAX_L3_GAS_PRICE=${EXECUTOR_MAX_L3_GAS_PRICE:-10} # Default to 10 if not provided
 
 # Generate systemd service file dynamically
 sudo tee /etc/systemd/system/t3rn-executor.service > /dev/null <<EOF
