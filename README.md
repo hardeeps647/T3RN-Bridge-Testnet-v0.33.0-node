@@ -64,7 +64,7 @@ Claim **BRN tokens** for testing via the faucet:
 ### Ensure the Script is in the Root Directory  
 Run the following command to auto-install and execute the script:  
 ```bash
-wget https://raw.githubusercontent.com/hardeeps647/T3RN-Bridge-Testnet-v0.47.0-node/main/t3rn_executor.sh && chmod +x t3rn_executor.sh && ./t3rn_executor.sh
+wget https://raw.githubusercontent.com/hardeeps647/T3RN-Bridge-Testnet-v0.48.0-node/main/t3rn_executor.sh && chmod +x t3rn_executor.sh && ./t3rn_executor.sh
 ```
 
 ---
