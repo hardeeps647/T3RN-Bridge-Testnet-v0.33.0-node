@@ -13,10 +13,10 @@ echo "\n
 rm -rf executor
 
 # Download and extract the executor binary
-curl -L -o executor-linux-v0.47.0.tar.gz \
-  https://github.com/t3rn/executor-release/releases/download/v0.47.0/executor-linux-v0.47.0.tar.gz && \
-tar -xzvf executor-linux-v0.47.0.tar.gz && \
-rm -f executor-linux-v0.47.0.tar.gz && \
+curl -L -o executor-linux-v0.48.0.tar.gz \
+  https://github.com/t3rn/executor-release/releases/download/v0.48.0/executor-linux-v0.48.0.tar.gz && \
+tar -xzvf executor-linux-v0.48.0.tar.gz && \
+rm -f executor-linux-v0.48.0.tar.gz && \
 cd executor/executor/bin || exit
 
 # Prompt user for necessary configuration inputs
@@ -26,7 +26,7 @@ read -p "Enter RPC_ENDPOINTS BASE SEPOLIA RPC: " RPC_ENDPOINTS_BSSP
 read -p "Enter RPC_ENDPOINTS BLAST SEPOLIA RPC: " RPC_ENDPOINTS_BLSS
 read -p "Enter RPC_ENDPOINTS OPTIMISM SEPOLIA RPC: " RPC_ENDPOINTS_OPSP
 read -p "Enter EXECUTOR_MAX_L3_GAS_PRICE (default 10): " EXECUTOR_MAX_L3_GAS_PRICE
-EXECUTOR_MAX_L3_GAS_PRICE=${EXECUTOR_MAX_L3_GAS_PRICE:-10} # Default to 10 if not provided
+EXECUTOR_MAX_L3_GAS_PRICE=${EXECUTOR_MAX_L3_GAS_PRICE:10} # Default to 10 if not provided
 
 # Generate systemd service file dynamically
 sudo tee /etc/systemd/system/t3rn-executor.service > /dev/null <<EOF
@@ -36,7 +36,7 @@ After=network.target
 
 [Service]
 ExecStart=/root/executor/executor/bin/executor
-Environment="NODE_ENV=testnet"
+Environment="ENVIRONMENT=testnet"
 Environment="LOG_LEVEL=debug"
 Environment="LOG_PRETTY=false"
 Environment="EXECUTOR_PROCESS_ORDERS=true"
